@@ -1,7 +1,7 @@
-## Photo Gallery Application with React + TypeScript + Vite
+# Photo Gallery Application with React + TypeScript + Vite
 GalleryPro is a dynamic photo application on the web that allows users to Sign up and  upload pictures, view other users uploadss, and save their favorite pictures. It leverages the TFirebase Autentication and Firestore to store photos and authenticate.
 
-### Table of Contents
+## Table of Contents
 * Demo
 * Features
 * Getting Started
@@ -13,10 +13,10 @@ GalleryPro is a dynamic photo application on the web that allows users to Sign u
 * Contributing
 * License
 
-### Demo
-  You can check out the live demo of MovieBox at [Demo Link] (https://hn-gx-stage3-gallery-pro-git-main-olaemmanuel.vercel.app/)
+## Demo
+  You can check out the live demo of MovieBox at [Demo Link] https://harmonious-mandazi-b656d5.netlify.app/
 
-### Features
+## Features
 Search Pictures: Easily search for photos by email of users.
 View photo upload details
 Drag and drop sorting
@@ -30,14 +30,14 @@ https://drive.google.com/file/d/1C3BBb1bL6ZcDGbOmOhG2OWvQJg6_2Vo2/view?usp=shari
 https://drive.google.com/file/d/1Q4gjVPG-I8KGCvEjnTQVcD0krT0HBjy0/view?usp=sharing
 
 
-### Getting Started
+## Getting Started
 Prerequisites
 Before you get started, ensure you have the following prerequisites:
 
 Node.js installed
 npm or Yarn package manager
 
-### Installation
+## Installation
 Clone the repository.
 
 git clone https://github.com/Emmanuel0846/HNGx_stage3_GalleryPro.git
@@ -45,21 +45,21 @@ Navigate to the project directory.
 
 cd gallery-pro
 
-### Install the dependencies.
+## Install the dependencies.
 
 npm install react-dom npm install axios npm install react
 
-### Usage
+## Usage
 Start the development server.
 npm run dev Open your web browser and access http://localhost:5173/ to use GalleryPro.
 
 Use the search feature to find photos by mail, and click on aphoto to enlarge it.
 
 
-### Error Handling
+## Error Handling
 GalleryPro provides informative error messages in case of Firebase failure or other issues, ensuring a smooth user experience.
 
-### Contributing
+## Contributing
 We welcome contributions to GalleryPro To contribute, follow these steps:
 
 * Fork the repository.
