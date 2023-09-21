@@ -72,7 +72,7 @@ const closeEnlargedImg = () => {
           key={image.imageUrl}
           className={`card move card-compact w-full bg-base-100 shadow-xl ${
             enlargedImg === image.imageUrl ? 'enlarged' : ''
-          }`}
+          }`} draggable
           onClick={() => handleImageClick(image.imageUrl)} // Add this line
         >
             <figure className="max-h-[17rem]">
