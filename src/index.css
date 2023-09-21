@@ -1,0 +1,138 @@
+/* Import styles at a global level */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home {
+  background-image: url('https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg');
+}
+
+
+.footer {
+  width: 80%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  bottom: 40px;
+}
+
+.condition {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+ footer h4 {
+  text-align: center;
+ }
+
+
+ @media screen and (max-width: 1000px) {
+  .condition {
+    width: 100%;
+  }
+}
+
+  @media screen and (max-width: 400px) {
+    .condition {
+      margin-bottom: -30px;
+    }
+
+  .condition a {
+    font-size: 13px;
+   }
+
+   footer h4 {
+    font-size: 12px;
+    text-align: center;
+   }
+}
+
+@media screen and (max-width: 350px) {
+
+  .condition a {
+    font-size: 10px;
+   }
+
+   footer h4 {
+    font-size: 11px;
+    padding-top: 10px;
+   }
+}
+
+
+.my-image {
+  height:350px
+}
+
+.move {
+  cursor: move;
+}
+
+.move:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.move.enlarged, .my-image.enlarged {
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  width: 400px;
+  height: 500px;
+  border-radius:20px;
+}
+
+.close-button {
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 70px;
+  height: 40px;
+  border-radius:20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  background-color:rgba(154, 5, 5, 0.5);
+}
+
+.close-button:hover {
+  background-color: brown;
+}
+
+.red {
+  color: brown;
+  cursor: pointer;
+}
+
+.red-red {
+  color: green;
+}
+
+.purple {
+  color: blueviolet;  
+}
+
+.note {
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: 700px) {
+
+  .red-red, .note{
+    font-size: 12px;
+    padding: 10px;
+   }
+}
+
+
+
