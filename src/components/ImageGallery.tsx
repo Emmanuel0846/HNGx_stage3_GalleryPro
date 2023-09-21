@@ -10,10 +10,10 @@ const ImageGallery = () => {
   
 
   useEffect(() => {
-    if (galleryRef.current) {
-      new Sortable(galleryRef.current, {});
-    }
-  }, []);
+  if (galleryRef.current) {
+    new Sortable(galleryRef.current, {});
+  }
+}, []);
   
   
   
