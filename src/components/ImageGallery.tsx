@@ -7,52 +7,51 @@ const ImageGallery = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const galleryRef = useRef(null);
   const [enlargedImg, setEnlargedImg] = useState<string | null>(null);
-  
-
-  useEffect(() => {
-  if (galleryRef.current) {
-    new Sortable(galleryRef.current, {});
-  }
-}, []);
-  
-  
-  
 
   const filteredImages = images.filter((image) =>
     image.userEmail.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-    if (isLoading) {
-      return (
-        <div className="text-center mt-10">
-          <progress className="progress w-56"></progress>
-        </div>
-      );
+  useEffect(() => {
+    if (galleryRef.current) {
+      new Sortable(galleryRef.current, {
+        // SortableJS options
+        onEnd: (evt) => {
+          const updatedImages = [...filteredImages];
+          const [movedItem] = updatedImages.splice(evt.oldIndex as number, 1);
+          updatedImages.splice(evt.newIndex as number, 0, movedItem);
+        },
+      });
     }
+  }, [filteredImages]);
 
+  
+  if (isLoading) {
+    return (
+      <div className="text-center mt-10">
+        <progress className="progress w-56"></progress>
+      </div>
+    );
+  }
 
-// Function to handle image click and set the enlarged image
-const handleImageClick = (image: string) => {
-  setEnlargedImg(image);
-};
+  // Function to handle image click and set the enlarged image
+  const handleImageClick = (image: string) => {
+    setEnlargedImg(image);
+  };
 
-
-const closeEnlargedImg = () => {
-  setEnlargedImg(null);
-};
-
+  const closeEnlargedImg = () => {
+    setEnlargedImg(null);
+  };
 
   return (
     <div>
-       {enlargedImg && (
+      {enlargedImg && (
         <button className="close-button" onClick={closeEnlargedImg}>
           Close
         </button>
-       )}
-       <br/>
-       <h3 className='note'><strong>Note:</strong> The default email to search on this app: &nbsp; <span className='red'>user@example.com, olaoluwa@example.com,
-          emmanuel@example.com</span> and <span className='red'>hng-task3@example.com</span>. &nbsp; &nbsp;<span>You can also 
-            search for images posted by other users using their email</span></h3>
+      )}
+      <br/>
+  
        
       <div className="mb-4">
         <input
@@ -63,8 +62,7 @@ const closeEnlargedImg = () => {
           className="w-full p-2 border rounded"
         />
       </div>
-      <h3 className='red-red'>Click on any image to enlarge and click the<span className='purple'>&nbsp; close button &nbsp; 
-        </span> that will appear on the enlarged image to go back to normal. Sorting through drag and drop is also admissible.</h3>
+      <h3 className='red-red'>Click on any image to enlarge</h3>
 
       <div className="grid md:grid-cols-3 justify-center gap-4 mt-10" ref={galleryRef}>
         {filteredImages.map((image: { imageUrl: string, userEmail: string, createdAt: Date }) => (
@@ -72,13 +70,14 @@ const closeEnlargedImg = () => {
           key={image.imageUrl}
           className={`card move card-compact w-full bg-base-100 shadow-xl ${
             enlargedImg === image.imageUrl ? 'enlarged' : ''
-          }`} draggable
-          onClick={() => handleImageClick(image.imageUrl)} // Add this line
+          }`} draggable = {true}
+          onClick={() => handleImageClick(image.imageUrl)}
         >
             <figure className="max-h-[17rem]">
               <img className={`my-image ${
             enlargedImg === image.imageUrl ? 'enlarged' : ''
-          }`} src={image.imageUrl} alt="photo" />
+          }`} 
+           src={image.imageUrl} alt="photo" />
             </figure>
             <div className="card-body">
               <p>Upload by: {image.userEmail}</p>
