@@ -65,6 +65,15 @@
    }
 }
 
+@media screen and (max-width: 1000px) {
+
+  .grid {
+    margin-left: 50px;
+    margin-right: 50px;
+   }
+}
+
+
 
 .my-image {
   height:350px
@@ -72,6 +81,7 @@
 
 .move {
   cursor: move;
+  margin-bottom: 60px;
 }
 
 .move:hover {
@@ -88,6 +98,22 @@
   width: 400px;
   height: 500px;
   border-radius:20px;
+}
+
+@media screen and (max-width: 400px) {
+  .move.enlarged, .my-image.enlarged {
+    width: 300px;
+    height: 420px;
+    border-radius:15px;
+  } 
+}
+
+@media screen and (max-width: 350px) {
+  .move.enlarged, .my-image.enlarged {
+    width: 250px;
+    height: 320px;
+    border-radius:15px;
+  } 
 }
 
 .close-button {
